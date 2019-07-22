@@ -1,5 +1,8 @@
 <?php 
-
+/**
+ * Create session pagseguro for permission connect with pagseguro
+ *
+ */
 function getSession() { 
     $data['email'] = '';
     $data['token'] = '';
@@ -20,6 +23,7 @@ function getSession() {
 
     if ( $xml == 'Unauthorized' ) {
         echo "Unauthorized";
+        
         exit;
     }
 
@@ -28,7 +32,6 @@ function getSession() {
     $xml = simplexml_load_string($xml);
 
     if (count($xml->error) > 0) {
-        echo "error";
 
         var_dump($xml->error);
 
